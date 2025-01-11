@@ -15,7 +15,7 @@ namespace infini
   using Operator = Ref<OperatorObj>;
   using Graph = Ref<GraphObj>;
   using Runtime = Ref<RuntimeObj>;
-  using Blob = Ref<BlobObj>;
+  using Blob = Ref<BlobObj>;  // 创建别名Blob，指向BlobObj类 
 
   using TensorVec = vector<Tensor>;
   using OpVec = vector<Operator>;
@@ -33,8 +33,8 @@ namespace infini
   public:
     explicit RuntimeObj(Device device)
         : device(device) {}
-    RuntimeObj(RuntimeObj &other) = delete;
-    RuntimeObj &operator=(RuntimeObj const &) = delete;
+    RuntimeObj(RuntimeObj &other) = delete;          // 禁用拷贝构造函数
+    RuntimeObj &operator=(RuntimeObj const &) = delete;   // 禁用赋值构造函数
     virtual ~RuntimeObj() {}
 
     virtual void run(const Graph &graph) const = 0;

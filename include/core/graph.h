@@ -18,7 +18,7 @@ namespace infini
 
     public:
         explicit GraphObj(Runtime runtime)
-            : runtime(runtime), allocator(runtime), sorted(false){};
+            : runtime(runtime), allocator(runtime), sorted(false){};    // explicit 用于防止隐式类型转换
         string toString() const override;
         Runtime getRuntime() const { return runtime; }
 
